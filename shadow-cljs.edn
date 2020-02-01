@@ -1,0 +1,18 @@
+;; shadow-cljs configuration
+{:source-paths ["src/browser"
+                "src/electron"
+                "src/test"]
+
+ :dependencies []
+
+ :dev-http {"8080" "public"}
+ :builds {:frontend {:target :browser
+                     :output-dir "public/js"
+                     :asset-path "js/"
+                     :repl-init-ns todo.core
+                     :repl-pprint true}
+          :electron {:target :node-script
+                     :output-to "public/main.js"
+                     :main todo.main/main
+                     :repl-init-ns todo.main
+                     :repl-pprint true}}}
