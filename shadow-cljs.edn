@@ -3,12 +3,13 @@
                 "src/electron"
                 "src/test"]
 
- :dependencies []
+ :dependencies [[reagent "0.9.0"]]
 
- :dev-http {"8080" "public"}
+ :dev-http {8080 "public"}
  :builds {:frontend {:target :browser
                      :output-dir "public/js"
                      :asset-path "js/"
+                     :modules {:main {:entries [todo.core]}}
                      :repl-init-ns todo.core
                      :repl-pprint true}
           :electron {:target :node-script
