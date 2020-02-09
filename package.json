@@ -2,7 +2,12 @@
   "name": "todo",
   "version": "0.0.1",
   "private": true,
+  "main": "electron/main.js",
+  "scripts": {
+    "start-electron": "electron ."
+  },
   "devDependencies": {
+    "electron": "^8.0.0",
     "shadow-cljs": "2.8.83"
   },
   "dependencies": {

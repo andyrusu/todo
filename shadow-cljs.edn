@@ -12,8 +12,14 @@
                      :modules {:main {:entries [todo.core]}}
                      :repl-init-ns todo.core
                      :repl-pprint true}
+          :browser {:target :browser
+                    :output-dir "public/js"
+                    :asset-path "js/"
+                    :modules {:main {:entries [todo.core]}}
+                    :compiler-options {:optimizations :advanced}}
           :electron {:target :node-script
-                     :output-to "public/main.js"
+                     :output-to "electron/main.js"
+                     :asset-path "js/"
                      :main todo.main/main
                      :repl-init-ns todo.main
                      :repl-pprint true}}}
