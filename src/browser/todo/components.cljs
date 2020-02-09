@@ -11,9 +11,12 @@
   "Generates the template for active list items."
   [[id label]]
   ^{:key id} [:li.ui-state-default
-              [:div.checkbox {:data-val label :on-click h/mark-item-done}
-               [:label
-                [:input {:type "checkbox" :value "" :checked false}]
+              [:div.checkbox 
+               [:label 
+                [:input {:type "checkbox" 
+                         :checked false
+                         :value label 
+                         :on-change h/mark-item-done}]
                 label]]])
 
 (defn list-inactive-item [[id label]]

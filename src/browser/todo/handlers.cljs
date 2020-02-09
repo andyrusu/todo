@@ -23,7 +23,7 @@
   "Handler for the onClick event, moves one item to :inactive."
   [event]
   (let [elem (.-currentTarget event)
-        val (d/get elem "val")]
+        val (f/getValue elem)]
     (swap! data/todo-items
            (fn [list item]
              {:active (m/delete-item (:active list) item)
