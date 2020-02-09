@@ -1,12 +1,12 @@
 (ns todo.core
-  (:require [reagent.core :as r]
-            [todo.data :as d]
-            [todo.components :as comp]))
+  (:require [reagent.core :as reagent]
+            [todo.data :as data]
+            [todo.components :as components]))
 
 (defn ^:export run []
   (do
-    (d/init-watch)
-    (r/render [comp/todo-app d/todo-items]
+    (data/init-watch)
+    (reagent/render [components/todo-app data/todo-items]
               (js/document.getElementById "app"))))
 
 (run)

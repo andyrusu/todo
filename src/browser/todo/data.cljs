@@ -1,5 +1,5 @@
 (ns todo.data
-  (:require [reagent.core :as r]
+  (:require [reagent.core :as reagent]
             [todo.localstorage :as ls]
             [cljs.reader :as reader]))
 
@@ -15,7 +15,7 @@
       (create-list [] [])
       (reader/read-string list))))
 
-(def todo-items (r/atom (init-data)))
+(def todo-items (reagent/atom (init-data)))
 
 (defn init-watch
   []

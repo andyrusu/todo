@@ -1,10 +1,10 @@
 (ns todo.components
-  (:require [todo.handlers :as h]))
+  (:require [todo.handlers :as handlers]))
 
 (defn new-item-form []
   [:div
-   [:input {:id "new-item" :class "form-control add-todo" :type "text" :placeholder "Add todo" :on-key-press h/new-item}]
-   [:button {:id "check-all" :class "btn btn-success" :on-click h/mark-all-done} "Mark all as done"]
+   [:input {:id "new-item" :class "form-control add-todo" :type "text" :placeholder "Add todo" :on-key-press handlers/new-item}]
+   [:button {:id "check-all" :class "btn btn-success" :on-click handlers/mark-all-done} "Mark all as done"]
    [:hr]])
 
 (defn list-active-item
@@ -16,13 +16,13 @@
                 [:input {:type "checkbox" 
                          :checked false
                          :value label 
-                         :on-change h/mark-item-done}]
+                         :on-change handlers/mark-item-done}]
                 label]]])
 
 (defn list-inactive-item [[id label]]
   ^{:key id} [:li
               label
-              [:button {:class "remove-item btn btn-default btn-xs pull-right" :data-val label :on-click h/delete-item}
+              [:button {:class "remove-item btn btn-default btn-xs pull-right" :data-val label :on-click handlers/delete-item}
                [:span {:class "glyphicon glyphicon-remove"}]]])
 
 (defn list-footer [no-of-items]
